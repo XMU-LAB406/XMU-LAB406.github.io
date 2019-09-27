@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>People - 成员 | XMU lab406</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a class="split-language" href="/" data-content="Lab406 - 科研二406" < a>></a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item split-language" data-content="About - 关于" href="/about">About - 关于</a>
+                
+                    <a class="menu-item split-language" data-content="People - 成员" href="/people">People - 成员</a>
+                
+                    <a class="menu-item split-language" data-content="Projects - 项目" href="/projects">Projects - 项目</a>
+                
+                    <a class="menu-item split-language" data-content="Publications - 出版物" href="/publications">Publications - 出版物</a>
+                
+                <!-- <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label> -->
+                <label class="menu-item" href id="switch_language">中文</label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Lab406 - 科研二406</a><!-- <a id="mobile-toggle-theme">·&nbsp;Light</a> -->
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/about">About - 关于</a>
+                
+                    <a class="menu-item" href="/people">People - 成员</a>
+                
+                    <a class="menu-item" href="/projects">Projects - 项目</a>
+                
+                    <a class="menu-item" href="/publications">Publications - 出版物</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand split-language" onclick="expand_toc()" data-content="Expand all - 全部展开"></a>
+        <a class="split-language" onclick="go_top()" data-content="Back to top - 回到顶部"></a>
+        <a class="split-language" onclick="go_bottom()" data-content="Go to bottom - 去到底部"></a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+            const isEnglish = currentLanguage !== 'Chinese';
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: isEnglish ? '#English' : '#Chinese' ,
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            });
+            document.getElementById('switch_language').addEventListener('click', () => {
+                const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+                const isEnglish = currentLanguage !== 'Chinese';
+                tocbot.init({
+                    tocSelector: '.tocbot-list',
+                    contentSelector: isEnglish ? '#English' : '#Chinese' ,
+                    headingSelector: 'h1, h2, h3, h4, h5',
+                    collapseDepth: 1,
+                    orderedList: false,
+                    scrollSmooth: true,
+                });
+            });
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+        const isEnglish = currentLanguage !== 'Chinese';
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: isEnglish ? '#English' : '#Chinese' ,
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.setAttribute("data-content", "Collapse all - 全部折叠");
+        update_string();
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+        const isEnglish = currentLanguage !== 'Chinese';
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: isEnglish ? '#English' : '#Chinese' ,
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.setAttribute("data-content", "Expand all - 全部展开");
+        update_string();
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+    <article class="post-wrap page">
+        
+        <h2 class="post-title split-language" data-content="People - 成员"></h2>
+        
+        <section class="post-content">
+            <div id="English">
+
+<h2 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h2><h3 id="doctor"><a href="#doctor" class="headerlink" title="doctor"></a>doctor</h3><center>
+
+<div style="width: 50%;">
+<img src="/img/avatar.jpg" width="80%">
+
+<p>KHAWAJA IFTEKHAR RASHID<br><a href="mailto:iftekharrashid@outlook.com" target="_blank" rel="noopener">iftekharrashid@outlook.com</a></p>
+</div>
+
+</center>
+
+<h3 id="master"><a href="#master" class="headerlink" title="master"></a>master</h3><center>
+
+<div style="width: 50%;">
+<img src="/img/hongdan.jpg" width="80%">
+
+<p>Dan Hong<br><a href="mailto:931172074@qq.com" target="_blank" rel="noopener">931172074@qq.com</a></p>
+</div>
+
+</center>
+
+<h2 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h2><h3 id="doctor-1"><a href="#doctor-1" class="headerlink" title="doctor"></a>doctor</h3><center>
+
+<div style="width: 50%;">
+<img src="/img/avatar.jpg" width="80%">
+
+<p>Chunting Cai<br><a href="mailto:931564639@qq.com" target="_blank" rel="noopener">931564639@qq.com</a></p>
+</div>
+
+</center>
+
+<h3 id="master-1"><a href="#master-1" class="headerlink" title="master"></a>master</h3><center>
+
+<div style="float:left; width: 50%;">
+<img src="/img/dengzhaoli.jpg" width="80%">
+
+<p>Zhaoli Deng<br><a href="mailto:304628356@qq.com" target="_blank" rel="noopener">304628356@qq.com</a></p>
+</div>
+<div style="float:left; width: 50%;">
+<img src="/img/linrongjie.jpg" width="80%">
+
+<p>Rongjie Lin<br><a href="mailto:254634847@qq.com" target="_blank" rel="noopener">254634847@qq.com</a></p>
+</div>
+<div style="float:left; width: 50%;">
+<img src="/img/liupan.jpg" width="80%">
+
+<p>Pan Liu<br><a href="mailto:onns@onns.xyz" target="_blank" rel="noopener">onns@onns.xyz</a></p>
+</div>
+<div style="float:left; width: 50%;">
+<img src="/img/avatar.jpg" width="80%">
+
+<p>Heng Yin<br><a href="mailto:1245546273@qq.com" target="_blank" rel="noopener">1245546273@qq.com</a></p>
+</div>
+
+
+</center>
+
+<h2 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h2><h3 id="master-2"><a href="#master-2" class="headerlink" title="master"></a>master</h3><center>
+
+<div style="float:left; width: 50%;">
+<img src="/img/avatar.jpg" width="80%">
+
+<p>Chenhui Wen<br><a href="mailto:wen.chenhui@qq.com" target="_blank" rel="noopener">wen.chenhui@qq.com</a></p>
+</div>
+<div style="float:left; width: 50%;">
+<img src="/img/wubingying.jpg" width="80%">
+
+<p>Bingying Wu<br><a href="mailto:wu_bying@qq.com" target="_blank" rel="noopener">wu_bying@qq.com</a></p>
+</div>
+<div style="float:left; width: 50%;">
+<img src="/img/avatar.jpg" width="80%">
+
+<p>Yuhui Zheng<br><a href="mailto:xuzhaozhengwei@163.com" target="_blank" rel="noopener">xuzhaozhengwei@163.com</a></p>
+</div>
+
+</center>
+
+</div>
+
+<div id="Chinese">
+
+<!-- ## 2019级
+
+### 硕士生
+
+<center>
+
+<div style="width: 50%;">
+<img src="/img/hongdan.jpg" width="80%">
+
+洪丹
+931172074@qq.com
+</div>
+
+</center> -->
+
+</div>
+        </section>
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Lab406 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
