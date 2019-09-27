@@ -13,9 +13,11 @@ title: People - 成员
 <div style="width: 50%;">
 <img src="/img/avatar.jpg" width="80%">
 
-KHAWAJA IFTEKHAR RASHID
+#### KHAWAJA IFTEKHAR RASHID
 iftekharrashid@outlook.com
 </div>
+
+▲
 
 </center>
 
@@ -26,9 +28,11 @@ iftekharrashid@outlook.com
 <div style="width: 50%;">
 <img src="/img/hongdan.jpg" width="80%">
 
-Dan Hong
+#### Dan Hong
 931172074@qq.com
 </div>
+
+▲
 
 </center>
 
@@ -41,9 +45,11 @@ Dan Hong
 <div style="width: 50%;">
 <img src="/img/avatar.jpg" width="80%">
 
-Chunting Cai
+#### Chunting Cai
 931564639@qq.com
 </div>
+
+▲
 
 </center>
 
@@ -54,30 +60,32 @@ Chunting Cai
 <div style="float:left; width: 50%;">
 <img src="/img/dengzhaoli.jpg" width="80%">
 
-Zhaoli Deng
+#### Zhaoli Deng
 304628356@qq.com
 </div>
 <div style="float:left; width: 50%;">
 <img src="/img/linrongjie.jpg" width="80%">
 
-Rongjie Lin
+#### Rongjie Lin
 254634847@qq.com
 </div>
 <div style="float:left; width: 50%;">
 <img src="/img/liupan.jpg" width="80%">
 
-Pan Liu
+#### Pan Liu
 onns@onns.xyz
 </div>
 <div style="float:left; width: 50%;">
 <img src="/img/avatar.jpg" width="80%">
 
-Heng Yin
+#### Heng Yin
 1245546273@qq.com
 </div>
 
+▲
 
 </center>
+
 
 ## 2017
 
@@ -88,21 +96,24 @@ Heng Yin
 <div style="float:left; width: 50%;">
 <img src="/img/avatar.jpg" width="80%">
 
-Chenhui Wen
+#### Chenhui Wen
 wen.chenhui@qq.com
+
 </div>
 <div style="float:left; width: 50%;">
 <img src="/img/wubingying.jpg" width="80%">
 
-Bingying Wu
+#### Bingying Wu
 wu_bying@qq.com
 </div>
 <div style="float:left; width: 50%;">
 <img src="/img/avatar.jpg" width="80%">
 
-Yuhui Zheng
+#### Yuhui Zheng
 xuzhaozhengwei@163.com
 </div>
+
+▲
 
 </center>
 
