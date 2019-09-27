@@ -1,15 +1,13 @@
-# html lang
-language: zh
-
 # Header
-navname: Lab406
+navname: Lab406 - 科研二406
 
 # navigatior items
 nav:
-  About: /about
-  People: /people
-  Projects: /projects
-  Publications: /publications
+  About - 关于: /about
+  People - 成员: /people
+  # Posts - 文章: /archives
+  Projects - 项目: /projects
+  Publications - 出版物: /publications
 
 # favicon
 favicon: /favicon.ico
@@ -19,16 +17,16 @@ nickname: XMU lab406
 
 ### this variable is MarkDown form.
 description: This website is for ...
-avatar: /image/avatar.jpg
+avatar: /img/avatar.jpg
 
 # main menu navigation
 ## links key words should not be changed.
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  # Blog: /
+  Blog: /archives
 #  Category:
-#  Tags:
+#  Tags: 
 #  Link:
 #  Resume:
 #  Publish:
@@ -36,7 +34,7 @@ links:
 #  Gallary:
 #  RSS:
 #  AliPay:
-  # ZhiHu: https://www.zhihu.com/people/sirice
+  #ZhiHu: https://www.zhihu.com/people/sirice
 #  LinkedIn:
 #  FaceBook:
 #  Twitter:
@@ -94,6 +92,9 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
   - /js/script.js
+  - /js/tocbot.min.js
+    # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
+    # https://github.com/tscanlin/tocbot
 
 
 # plugin functions

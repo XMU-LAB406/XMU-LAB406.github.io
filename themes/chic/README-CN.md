@@ -26,6 +26,7 @@
 - [Installation 安装](#installation-安装)
 - [Configuration 配置](#configuration-配置)
 - [Customize 自定义](#customize-自定义)
+- [FAQ 提问](#faq-提问)
 - [Gallary 图片展示](#gallary-图片展示)
 - [License 开源许可](#license-开源许可)
 
@@ -59,9 +60,6 @@ git clone https://github.com/Siricee/hexo-theme-Chic.git Chic
 <summary><mark>点击展开配置文件</mark></summary>
 
 ```yaml
-# html lang
-language: en
-
 # Header
 navname: Bentham's Blog
 
@@ -87,7 +85,7 @@ avatar: /image/avatar.jpeg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  Blog: /
+  Blog: /archives
 #  Category:
 #  Tags:
 #  Link:
@@ -155,6 +153,9 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
   - /js/script.js
+  - /js/tocbot.min.js
+    # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
+    # https://github.com/tscanlin/tocbot
 
 
 # plugin functions
@@ -162,7 +163,7 @@ scripts:
 ## https://www.mathjax.org
 mathjax:
   enable: true
-  import: global # global or demand
+  import: demand # global or demand
   ## global: all pages will load mathjax,this will degrade performance and some grammers may be parsed wrong.
   ## demand: Recommend option,if your post need fomula, you can declare 'mathjax: true' in Front-matter
 ```
@@ -220,13 +221,42 @@ mathjax:
 LaTeX语法这里不做解释，本主题中，单dollar符号包围的为行内公式，例：`$f(x)=ax+b$`，双dollar符号包围的为块公式，例`$$f(x)=ax+b$$`更多写法请参考LaTeX和[Demo site中的公式测试页面](https://siricee.github.io/hexo-theme-Chic/2019/07/05/MathJax_test/)。
 
 
-
 ## Customize 自定义
 - 代码高亮风格 在`hexo-theme-Chic\themes\Chic\source\css\style.styl`中更改highlight为`_highlight`文件夹中的stylus文件即可更换代码高亮风格。
 
 - 自定义css(stylus语法) 您可以在`hexo-theme-Chic\themes\Chic\source\css\custom.styl`路径文件中添加css规则
 
 - 自定义JavaScript 您可以在`hexo-theme-Chic\themes\Chic\source\js`路径中添加js脚本，并在_config.yml中`script`字段添加声明。
+
+## FAQ 提问
+1. 我在二级地址（非github page根repo，即username.github.io/Blog）上部署了hexo，为什么css、avatar等资源都404了？
+
+    答：此处需要另外填写主配置文件URL字段。以该主题repo为例：
+    ```yaml
+    # (blog/_config.yml)
+    
+    # URL
+    ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+    url: https://siricee.github.io/hexo-theme-Chic/  # 此处为你的部署url
+    root: /hexo-theme-Chic/  # 此处为你的项目根文件夹url。
+    permalink: :year/:month/:day/:title/
+    permalink_defaults:
+    ```
+
+2. 我想将黑色主题设为默认全局主题该怎么做？
+   
+   答：此处只需要改一下`themes\Chic\source\js\script.js`中`doucument.ready`函数的内容。代码如下
+   ```javascript
+   document.ready(
+    function () {
+        // ...省略代码
+        const isDark = currentTheme === 'dark';
+        // 此行改为
+        // const isDark = currentTheme !== 'dark';
+   ```
+   即可实现效果。
+
+3. 常见问题待补充……  
 
 ## Gallary 图片展示
 ![screely-1560228577821.png](https://i.loli.net/2019/06/12/5d00a0850285252790.png)

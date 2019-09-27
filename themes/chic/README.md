@@ -20,14 +20,19 @@
 - [English](README.md)
 
 ## Contents
+- [Doc language](#doc-language)
+- [Contents](#contents)
 - [Introduction](#introduction)
 - [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
 - [Configuration](#configuration)
+  - [Add 'Tag','Category' Page](#add-tagcategory-page)
+  - [MathJax (Render LaTeX Formula)](#mathjax-render-latex-formula)
 - [Customize](#customize)
+- [FAQ](#faq)
 - [Gallary](#gallary)
-- [License](#license)
+- [LICENSE](#license)
 
 
 ## Introduction
@@ -63,9 +68,6 @@ git clone https://github.com/Siricee/hexo-theme-Chic.git Chic
 <summary><mark>click here to spread</mark></summary>
 
 ```yaml
-# html lang
-language: en
-
 # Header
 navname: Bentham's Blog
 
@@ -91,7 +93,7 @@ avatar: /image/avatar.jpeg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  Blog: /
+  Blog: /archives
 #  Category:
 #  Tags:
 #  Link:
@@ -159,6 +161,9 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
   - /js/script.js
+  - /js/tocbot.min.js
+    # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
+    # https://github.com/tscanlin/tocbot
 
 
 # plugin functions
@@ -166,7 +171,7 @@ scripts:
 ## https://www.mathjax.org
 mathjax:
   enable: true
-  import: global # global or demand
+  import: demand # global or demand
   ## global: all pages will load mathjax,this will degrade performance and some grammers may be parsed wrong.
   ## demand: Recommend option,if your post need fomula, you can declare 'mathjax: true' in Front-matter
 ```
@@ -240,6 +245,37 @@ LaTeX grammers will not be illustrated in this doc. In Chic theme, Single '$' ro
   `hexo-theme-Chic\themes\Chic\source\js`
 
   Then add declareation in _config.yml key word 'script'
+
+## FAQ
+
+1. I deployed my site on second-level url(such as username.github.io/Blog), why my css,avatar and other sources  missed(404 error)?
+
+    Answer: You need change some URLs in root config url keyword. For instance:
+    ```yaml
+    # (blog/_config.yml)
+
+    # URL
+    ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+    url: https://siricee.github.io/hexo-theme-Chic/  # this is your deploy url.
+    root: /hexo-theme-Chic/  # this is your root folder url.
+    permalink: :year/:month/:day/:title/
+    permalink_defaults:
+    ```
+
+2. How to set the dark theme as default theme for whole site automatically?
+   
+   Answer: You need to change some codes in `themes\Chic\source\js\script.js`, function `doucument.ready` as below.
+   ```javascript
+   document.ready(
+    function () {
+        // ...Omit part of the code
+        const isDark = currentTheme === 'dark';
+        // change this line to
+        // const isDark = currentTheme !== 'dark';
+   ```
+   Now, you have already set the dark theme as default successfully.
+
+3. More questions will be added later...
 
 ## Gallary
 ![screely-1560228577821.png](https://i.loli.net/2019/06/12/5d00a0850285252790.png)

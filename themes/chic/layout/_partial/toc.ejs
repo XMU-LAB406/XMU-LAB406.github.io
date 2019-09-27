@@ -1,0 +1,81 @@
+<div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand split-language" onclick="expand_toc()" data-content="Expand all - 全部展开"></a>
+        <a class="split-language" onclick="go_top()" data-content="Back to top - 回到顶部"></a>
+        <a class="split-language" onclick="go_bottom()" data-content="Go to bottom - 去到底部"></a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+            const isEnglish = currentLanguage !== 'Chinese';
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: isEnglish ? '#English' : '#Chinese' ,
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            });
+            document.getElementById('switch_language').addEventListener('click', () => {
+                const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+                const isEnglish = currentLanguage !== 'Chinese';
+                tocbot.init({
+                    tocSelector: '.tocbot-list',
+                    contentSelector: isEnglish ? '#English' : '#Chinese' ,
+                    headingSelector: 'h1, h2, h3, h4, h5',
+                    collapseDepth: 1,
+                    orderedList: false,
+                    scrollSmooth: true,
+                });
+            });
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+        const isEnglish = currentLanguage !== 'Chinese';
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: isEnglish ? '#English' : '#Chinese' ,
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.setAttribute("data-content", "Collapse all - 全部折叠");
+        update_string();
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        const currentLanguage = window.localStorage && window.localStorage.getItem('language');
+        const isEnglish = currentLanguage !== 'Chinese';
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: isEnglish ? '#English' : '#Chinese' ,
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.setAttribute("data-content", "Expand all - 全部展开");
+        update_string();
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
